@@ -1,26 +1,15 @@
 package com.uet.project.service;
 
-import com.google.gson.Gson;
-import com.uet.project.dto.UserDTO;
 import com.uet.project.entity.AuthToken;
 import com.uet.project.repository.AuthTokenRepsitory;
 import com.uet.project.security.JwtTokenProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
-import org.springframework.web.context.request.RequestContextHolder;
-import org.springframework.web.context.request.ServletRequestAttributes;
-
-import javax.servlet.http.HttpServletRequest;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
 
 @Service
 public class AuthenticationService {
-    public static final long TIME_TO_LIVE = 5*60*60;
+    public static final long TIME_TO_LIVE = 5 * 60 * 60;
 
     @Autowired
     private AuthenticationManager authenticationManager;
