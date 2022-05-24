@@ -12,10 +12,6 @@ import java.util.Set;
 @Getter
 @Table(name="store")
 public class Store {
-    public static enum STORE_TYPE {
-        FOOD_PRODUCTION,
-        FOOD_SERVICE
-    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,7 +25,7 @@ public class Store {
     private String phone;
 
     @Column(name="type", nullable = false)
-    private STORE_TYPE type;
+    private String type;
 
     @Column(name="address")
     private String address;

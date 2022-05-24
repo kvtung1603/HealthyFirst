@@ -10,7 +10,7 @@ import java.util.Date;
 @Entity
 @Setter
 @Getter
-@Table(name="certificate")
+@Table(name = "certificate")
 
 public class Certificate {
 
@@ -22,28 +22,27 @@ public class Certificate {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="certificate_id", nullable = false)
+    @Column(name = "certificate_id", nullable = false)
     private int certificate_id;
 
-    @Column(name="dated", nullable = false)
+    @Column(name = "dated", nullable = false)
     private Date dated;
 
-    @Column(name="expiration_date", nullable = false)
-    private Date expirationDate;
+    @Column(name = "expiry_date", nullable = false)
+    private Date expiryDate;
 
-    @Column(name="type", nullable = false)
-    private CERTIFICATE_TYPE type;
+    @Column(name = "type", nullable = false)
+    private String type;
 
     //store
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name="store_id", nullable = false)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "store_id", nullable = false)
     private Store store;
-
 
 
     //action
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name="action_id", referencedColumnName = "certificate_id")
+    @JoinColumn(name = "action_id", referencedColumnName = "certificate_id")
     private Action actionEachCerti;
 
 }

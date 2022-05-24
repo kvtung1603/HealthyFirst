@@ -12,7 +12,7 @@ import java.util.Date;
 @Getter
 @Table(name="asessment")
 @EqualsAndHashCode
-public class Assessment {
+    public class Assessment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="asessment_id", nullable = false)

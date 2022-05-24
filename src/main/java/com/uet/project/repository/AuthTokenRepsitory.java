@@ -7,7 +7,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface AuthTokenRepsitory extends CrudRepository<AuthToken, Integer> {
-
     AuthToken findByToken(String token);
 
     void deleteById(int id);

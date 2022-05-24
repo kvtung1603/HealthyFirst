@@ -35,7 +35,7 @@ public class Action {
     private Store store;
 
     // manytoone vs user,
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name="user_id")
     private User user;
 
@@ -43,7 +43,6 @@ public class Action {
     //certificate
     @OneToOne(mappedBy = "actionEachCerti")
     private Certificate certificate;
-
 
     //
     @OneToMany(mappedBy = "doAction")
