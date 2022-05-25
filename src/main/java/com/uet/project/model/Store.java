@@ -1,6 +1,7 @@
 package com.uet.project.model;
 
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -11,6 +12,7 @@ import java.util.Set;
 @Setter
 @Getter
 @Table(name="store")
+@EqualsAndHashCode
 public class Store {
 
     @Id

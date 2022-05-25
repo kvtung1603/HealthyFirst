@@ -1,5 +1,6 @@
 package com.uet.project.model;
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -9,6 +10,7 @@ import javax.persistence.*;
 @Table(name="inspection")
 @Setter
 @Getter
+@EqualsAndHashCode
 public class Inspection {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

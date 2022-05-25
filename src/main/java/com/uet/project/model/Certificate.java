@@ -1,6 +1,7 @@
 package com.uet.project.model;
 
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -11,7 +12,7 @@ import java.util.Date;
 @Setter
 @Getter
 @Table(name = "certificate")
-
+@EqualsAndHashCode
 public class Certificate {
 
     public static enum CERTIFICATE_TYPE {

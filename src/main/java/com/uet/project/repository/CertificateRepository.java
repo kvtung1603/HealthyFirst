@@ -17,8 +17,8 @@ public interface CertificateRepository extends CrudRepository<Certificate, Integ
     List<Certificate> findCertificateByDated(Date date);
 
 
-    @Query(value="select c from Certificate c where c.dated=?1")
-    List<Certificate> findByType(Date date);
+    @Query(value="select c from Certificate c where c.type=?1")
+    List<Certificate> findByType(String type);
 
 
 }

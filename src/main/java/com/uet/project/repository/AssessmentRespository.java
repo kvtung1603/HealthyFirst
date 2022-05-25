@@ -8,8 +8,6 @@ import java.util.List;
 @Repository
 public interface AssessmentRespository extends CrudRepository<Assessment, Integer> {
 
-    List<Assessment> findAssessmentByName(String name);
 
-    List<Assessment> findAssessmentByAddress(String address);
 
 }
