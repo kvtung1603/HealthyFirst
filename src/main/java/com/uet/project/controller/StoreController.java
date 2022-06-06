@@ -13,19 +13,24 @@ import java.util.List;
 public class StoreController {
     private final StoreService storeService;
 
-    @GetMapping("/store/all-store")
-    public List<Store> findAll() {
-        return storeService.findAllStore();
+//    @GetMapping("/store/all-store")
+//    public List<Store> findAll() {
+//        return storeService.findAllStore();
+//    }
+//
+//    @GetMapping("/store/{address}")
+//    public List<Store> findStoreByAddress(@PathVariable("address") String address) {
+//        return storeService.findStoreByAddress(address);
+//    }
+
+    @GetMapping("/find/store/restaurant")
+    public List<Store> findAllRestaurant() {
+        return storeService.findStoreByType("RESTAURANT");
     }
 
-    @GetMapping("/store/{address}")
-    public List<Store> findStoreByAddress(@PathVariable("address") String address) {
-        return storeService.findStoreByAddress(address);
-    }
-
-    @GetMapping("/store/{type}")
-    public List<Store> findStoreByType(@PathVariable("type") String type) {
-        return storeService.findStoreByType(type);
+    @GetMapping("/find/store/manufacturing")
+    public List<Store> findAllManufacturing() {
+        return storeService.findStoreByType("MANUFACTURING");
     }
 
     @PostMapping("/store/registry")
@@ -37,11 +42,6 @@ public class StoreController {
     public void deleteStore(@RequestBody Store store) {
         storeService.delete(store);
     }
-
-
-
-
-
 
 
 }

@@ -1,6 +1,5 @@
 package com.uet.project.security;
 
-import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -10,18 +9,16 @@ import org.springframework.stereotype.Component;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.function.Function;
 
 @Component
 @Slf4j
 public class JwtTokenProvider implements Serializable {
     private final String JWT_SECRET = "abcdef";
-
     private static final long serialVersionUID = 1L;
 
     public String generateToken(UserDetails userDetails) {
         Date now = new Date();
-        long JWT_TIME_TO_LIVE = 24*60*60L;
+        long JWT_TIME_TO_LIVE = 24 * 60 * 60L;
         Date expiryDate = new Date(now.getTime() + JWT_TIME_TO_LIVE);
 
         return Jwts.builder()
@@ -75,8 +72,6 @@ public class JwtTokenProvider implements Serializable {
 //        final Date expiration = getExpirationDateFromToken(token);
 //        return expiration.before(new Date());
 //    }
-
-
 
 
 }

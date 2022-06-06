@@ -1,6 +1,6 @@
 package com.uet.project.controller;
 
-import com.uet.project.dto.UserDTO;
+import com.uet.project.dto.UserLoginDTO;
 import com.uet.project.entity.AuthToken;
 import com.uet.project.entity.User;
 import com.uet.project.security.JwtTokenProvider;
@@ -8,7 +8,6 @@ import com.uet.project.service.AuthenticationService;
 import com.uet.project.service.UserDetailsServiceImpl;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -16,10 +15,13 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 @RestController
 public class LoginController {
@@ -43,7 +45,7 @@ public class LoginController {
     private ModelMapper modelMapper;
 
     @PostMapping("/login")
-    public ResponseEntity login(@RequestBody UserDTO userDTO ) {
+    public ResponseEntity<Map<String, String>> login(@RequestBody UserLoginDTO userDTO) {
 
         Authentication authentication = authenticationManagerBean.authenticate(new UsernamePasswordAuthenticationToken(userDTO.getUsername(), userDTO.getPassword()));
 
@@ -51,18 +53,29 @@ public class LoginController {
         UserDetails userDetails = (UserDetails) authentication.getPrincipal();
         String token = jwtTokenProvider.generateToken(userDetails);
 
-//        Optional<User> user = userService.findByName(userName);
+        Optional<User> user = userDetailsServiceImpl.findByUserName(userDTO.getUsername());
+        Map<String, String> result = new HashMap<>();
+        if (user == null) {
+            result.put("message", "wrong account!!!");
+            return ResponseEntity.ok(result);
+        }
+        if (user.get().getStatus().equals("NEW")) {
+            result.put("message", "waiting for accepted!!!");
+            return ResponseEntity.ok(result);
+        }
 //        if (!user.isPresent()) {
 //            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Unregistered Email.");
 //        }
-//        if (!user.get().getPassWord().equals(passWord)) {
+//        if (!user.get().getPassword().equals(userDTO.getPassword())) {
 //            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Wrong password");
 //        }
-//        return new ResponseEntity<User>(user.get(), HttpStatus.OK);
-
         AuthToken authToken = authenticationService.save(new AuthToken(token));
-
-        return ResponseEntity.ok(token);
+        result.put("message", "login success!!!");
+        result.put("username", user.get().getUsername());
+        result.put("email", user.get().getEmail());
+        result.put("token", token);
+        result.put("role", String.valueOf(user.get().getRoles().stream().findFirst().get()));
+        return ResponseEntity.ok(result);
     }
 
 //
@@ -82,8 +95,6 @@ public class LoginController {
 //            return new ResponseEntity("Can't find user by id", HttpStatus.CREATED);
 //        }
 //    }
-
-
 
 
 }

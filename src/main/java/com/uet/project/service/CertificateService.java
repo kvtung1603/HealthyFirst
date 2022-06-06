@@ -13,22 +13,27 @@ import java.util.List;
 public class CertificateService {
     private final CertificateRepository certificateRepository;
 
-    public List<Certificate> findByExpiryDateBefore(Date date) {
-        return certificateRepository.findByExpiryDateBefore(date);
-    }
-
-    public List<Certificate> findByExpiryDateAfter(Date date) {
-        return certificateRepository.findByExpiryDateAfter(date);
-    }
-
-    public List<Certificate> findCertificateByDated(Date date) {
-        return certificateRepository.findCertificateByDated(date);
-    }
-    public List<Certificate> findByType(String type) {
-        return certificateRepository.findByType(type);
+    public List<Certificate> findAll() {
+        return (List<Certificate>) certificateRepository.findAll();
     }
 
 
+//    public List<Certificate> findByExpiryDateBefore(Date date) {
+//        return certificateRepository.findByExpiryDateBefore(date);
+//    }
+//
+//    public List<Certificate> findByExpiryDateAfter(Date date) {
+//        return certificateRepository.findByExpiryDateAfter(date);
+//    }
+//
+//    public List<Certificate> findCertificateByDated(Date date) {
+//        return certificateRepository.findCertificateByDated(date);
+//    }
+//    public List<Certificate> findByType(String type) {
+//        return certificateRepository.findByType(type);
+//    }
+//
+//
 
 
 }

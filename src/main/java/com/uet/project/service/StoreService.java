@@ -33,4 +33,10 @@ public class StoreService {
     public void delete(Store store) {
         storeRepository.delete(store);
     }
+
+    public Store findStoreById(int id) {
+        return storeRepository.findById(id).get();
+    }
+
+    
 }

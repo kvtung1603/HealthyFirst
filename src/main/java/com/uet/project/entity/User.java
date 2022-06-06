@@ -1,7 +1,10 @@
 package com.uet.project.entity;
 
-import com.uet.project.model.Action;
-import lombok.*;
+import com.uet.project.model.Store;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -25,8 +28,15 @@ public class User {
     @Column(name = "password", nullable = false)
     private String password;
 
+    @Column(name = "email", nullable = false)
+    private String email;
+
     @Column(name = "change_password_token")
     private String changePasswordToken;
+
+    @Column(name = "status", nullable = false)
+    private String status;
+
 
     public User(String username, String password) {
         this.username = username;
@@ -51,6 +61,7 @@ public class User {
 
     // onetomany vs action
     @OneToMany(mappedBy = "user")
-    private Set<Action> actions;
+    private Set<Store> stores;
+
 
 }
