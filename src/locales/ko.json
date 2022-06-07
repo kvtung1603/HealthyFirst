@@ -1,0 +1,26 @@
+{
+  "sideNavbar": {
+    "dashboard": "대시보드",
+    "transactionManagement": "거래관리",
+    "transactionHistory": "거래내역",
+    "convenienceStore": "편의점",
+    "cashPaymentManagement": "현금결제 관리",
+    "monthlyPayment": "월정기결제",
+    "chargeback": "Chargeback",
+    "settlementHistory": "정산내역",
+    "unsettled": "미정산",
+    "depositPendingHistory": "입금대기내역",
+    "depositCompletionDetails": "입금완료내역",
+    "paymentPending": "지급보류내역",
+    "taxBill": "세금계산서",
+    "invoiceManagement": "인보이스 관리",
+    "shipmentHistory": "발송내역",
+    "createInvoice": "인보이스 작성",
+    "accountInformation": "계정정보",
+    "accountAndUsageInformation": "계정 및 사용정보",
+    "paymentMethodContractInformation": "결제수단 계약정보",
+    "accountManagement": "API 계정 관리",
+    "addAndManageAccounts": "계정 추가 및 관리",
+    "eximbayCustomerCenter": "엑심베이 고객센터"
+  }
+}

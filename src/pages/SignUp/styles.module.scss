@@ -1,0 +1,59 @@
+.pageLogin {
+	background: url("https://demos.creative-tim.com/material-dashboard-react/static/media/bg-sign-in-basic.f327db1d0e4b00ba3c81.jpeg");
+	background-size: cover;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+
+	.loginForm {
+		width: 400px;
+		padding: 10px 30px;
+		height: 80%;
+		background: white;
+		border-radius: 20px;
+		position: relative;
+
+		.tile {
+			font-size: 2rem;
+			color: #333333;
+			line-height: 1.2;
+			font-weight: 700;
+			text-align: center;
+			margin: 50px;
+		}
+
+		:global {
+			.ant-row.ant-form-item {
+				flex-direction: column;
+
+				.ant-form-item-label {
+					text-align: left;
+				}
+			}
+			.ant-form-item-label > label:after {
+				content: " ";
+			}
+		}
+		.btnSubmit {
+			width: 100%;
+			height: 40px;
+			border-radius: 20px;
+		}
+
+		.signUp {
+			text-align: center;
+			position: absolute;
+			bottom: 0;
+			left: calc(50% - 40px);
+			width: 80px;
+			cursor: pointer;
+			font-size: 1rem;
+			font-weight: 600;
+		}
+	}
+
+	form {
+		text-align: center;
+	}
+}

@@ -1,0 +1,14 @@
+.authWrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  background-color: lightblue;
+
+  .mainWrapper {
+    width: 100%;
+  }
+  .pageContentWrapper {
+    height: calc(100% - 65px);
+    padding: 0 1.5rem;
+  }
+}

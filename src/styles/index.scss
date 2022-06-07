@@ -1,0 +1,117 @@
+/* style common */
+body,
+#root {
+  width: 100%;
+  height: 100%;
+
+  .containerPage {
+    .container {
+      position: relative;
+      margin-top: 1rem;
+
+      .button-create {
+        border: none;
+        background: #4285f4;
+        color: white;
+        padding: 0.5rem 1rem;
+        cursor: pointer;
+        border-radius: 10px;
+      }
+
+      .titleContainer {
+        background: linear-gradient(195deg, rgb(73, 163, 241), rgb(26, 115, 232));
+        box-shadow: rgba(0, 0, 0, 0.14) 0rem 0.25rem 1.25rem 0rem,
+          rgba(0, 187, 212, 0.4) 0rem 0.4375rem 0.625rem -0.3125rem;
+        position: absolute;
+        top: 0;
+        z-index: 1;
+        width: 50%;
+        color: #344767;
+        border-radius: 0.5rem;
+        padding: 24px 16px;
+        left: calc(50% - 25%);
+
+        h3 {
+          text-align: center;
+          color: white;
+          font-weight: 700;
+        }
+      }
+
+      .table {
+        padding-top: 30px;
+
+        .ant-table-thead {
+          .ant-table-cell {
+            padding-top: 4rem;
+            color: rgb(123, 128, 154);
+            opacity: 0.7;
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+          }
+        }
+
+        .ant-table-tbody {
+          color: rgb(52, 71, 103);
+          font-weight: 600;
+          font-size: 0.875rem;
+          line-height: 1.5;
+        }
+
+        .ant-table.ant-table-middle {
+          border-radius: 15px;
+        }
+
+        .ant-table-content {
+          border-radius: 15px;
+          overflow: hidden;
+        }
+      }
+    }
+
+    .buttonGroup {
+      button {
+        outline: none;
+        border: none;
+        border-radius: 10px;
+        padding: 5px 10px;
+        color: white;
+        cursor: pointer;
+      }
+
+      .accept {
+        background-color: #28a745;
+        margin-right: 15px;
+      }
+      .reject {
+        background-color: #dc3545;
+      }
+    }
+  }
+
+  .ant-modal-content {
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .ant-modal-close-icon {
+    svg {
+      path {
+        color: white;
+      }
+    }
+  }
+
+  .ant-modal-header {
+    background: #33b5e5;
+    .ant-modal-title {
+      color: white;
+    }
+  }
+
+  .ant-form-item-control-input-content {
+    display: flex;
+    justify-content: space-between;
+  }
+}

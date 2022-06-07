@@ -1,0 +1,34 @@
+.sideNavbar {
+  height: 100%;
+  background-color: #fff;
+  border-right: 1px solid #f0f0f0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  height: 100%;
+  :global {
+    .ant-menu-inline,
+    .ant-menu-vertical,
+    .ant-menu-vertical-left {
+      border: none;
+    }
+    .anticon {
+      width: 12px;
+    }
+  }
+
+  .logo {
+    display: flex;
+    justify-content: space-between;
+    padding: 24px;
+
+    .sidebarArrow {
+      cursor: pointer;
+    }
+
+    .collapsedArrow {
+      transform: rotate(180deg);
+      margin-top: 2px;
+      margin-left: 10px;
+    }
+  }
+}
