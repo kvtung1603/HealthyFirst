@@ -82,7 +82,7 @@ public class RegisterController {
     @PutMapping("/admin/new/update")
     @PreAuthorize("ADMIN")
     public ResponseEntity<String> acceptAccount(@RequestBody User user) {
-        User u = userService.findByUserName(user.getUsername()).get();
+        User u = userService.findByUserName(user.getUsername());
         if (u.getStatus().equals("NEW")) {
             u.setStatus("ACTIVE");
         }

@@ -25,4 +25,8 @@ public class InspectionService {
     }
 
 
+    public Inspection findByName(String name) {
+        return inspectionRepository.findByName(name);
+    }
+
 }

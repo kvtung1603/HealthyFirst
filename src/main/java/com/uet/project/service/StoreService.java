@@ -38,5 +38,9 @@ public class StoreService {
         return storeRepository.findById(id).get();
     }
 
+
+    public Store findStoreByName(String name) {
+        return storeRepository.findStoreByName(name);
+    }
     
 }

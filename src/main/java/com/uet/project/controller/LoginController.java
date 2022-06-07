@@ -21,7 +21,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Optional;
 
 @RestController
 public class LoginController {
@@ -53,13 +52,13 @@ public class LoginController {
         UserDetails userDetails = (UserDetails) authentication.getPrincipal();
         String token = jwtTokenProvider.generateToken(userDetails);
 
-        Optional<User> user = userDetailsServiceImpl.findByUserName(userDTO.getUsername());
+        User user = userDetailsServiceImpl.findByUserName(userDTO.getUsername());
         Map<String, String> result = new HashMap<>();
         if (user == null) {
             result.put("message", "wrong account!!!");
             return ResponseEntity.ok(result);
         }
-        if (user.get().getStatus().equals("NEW")) {
+        if (user.getStatus().equals("NEW")) {
             result.put("message", "waiting for accepted!!!");
             return ResponseEntity.ok(result);
         }
@@ -71,10 +70,10 @@ public class LoginController {
 //        }
         AuthToken authToken = authenticationService.save(new AuthToken(token));
         result.put("message", "login success!!!");
-        result.put("username", user.get().getUsername());
-        result.put("email", user.get().getEmail());
+        result.put("username", user.getUsername());
+        result.put("email", user.getEmail());
         result.put("token", token);
-        result.put("role", String.valueOf(user.get().getRoles().stream().findFirst().get()));
+        result.put("role", String.valueOf(user.getRoles().stream().findFirst().get()));
         return ResponseEntity.ok(result);
     }
 

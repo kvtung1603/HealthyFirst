@@ -10,4 +10,6 @@ import java.util.List;
 public interface InspectionRepository extends CrudRepository<Inspection, Integer> {
     List<Inspection> findInspectionByStatus(String status);
 
+    Inspection findByName(String name);
+
 }

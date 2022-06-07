@@ -16,26 +16,44 @@ insert into user_role(user_id, role_id) values (3,2);
 
 insert into user_role(user_id, role_id) values (2,2);
 
-insert into store(address, name, phone, type, user_id) values
-    ('address 1', 'name 1', '0123456789', 'RESTAURANT', 2);
+insert into store(address, name, phone, type, user_id)
+values
+    ('Dong Da, HN', 'quanan1', '0123456789', 'RESTAURANT', 2);
 
-insert into store(address, name, phone, type, user_id) values
-    ('address 2', 'name 2', '0123456789', 'RESTAURANT', 2);
+insert into store(address, name, phone, type, user_id)
+values
+    ('HTM, Cau Giay', 'quanan2', '0123456789', 'RESTAURANT', 2);
 
-insert into store(address, name, phone, type, user_id) values
-    ('address 3', 'name 3', '0123456789', 'MANUFACTURING', 3);
+insert into store(address, name, phone, type, user_id)
+values
+    ('Mai DIch, Cau Giay', 'nhahang1', '0123456789', 'MANUFACTURING', 3);
+insert into store(address, name, phone, type, user_id)
+values
+    (' Cau Giay', 'coso1', '0123456789', 'MANUFACTURING', 3);
+insert into store(address, name, phone, type)
+values
+    (' Cau Giay', 'nhahangso3', '0123456789', 'RESTAURANT');
+
+insert into inspection(name, result, status, store_id)
+values ('nhahang1', '1', '0', 'INPROCESS', 3);
 
 insert into inspection(inspection_id, name, result, status, store_id)
-values (2, 'store 1','null', 'INPROCESS', 2);
+values ('quanan2','0', 'INPROCESS', 2);
 
 insert into inspection(inspection_id, name, result, status, store_id)
-values (1, 'store 1','null', 'PENDING', 1);
+values ('quanan1','0', 'INPROCESS', 1);
+
+
+
+
+insert into certificate(dated, expiry_date, store_id)
+values ( '2021-01-01', '2025-01-01', 1);
 
 insert into certificate(certificate_id, dated, expiry_date, store_id)
-values (1, '2021-01-01', '2025-01-01', 1);
+values ('2021-01-01', '2025-01-01', 2);
 
 insert into certificate(certificate_id, dated, expiry_date, store_id)
-values (2, '2021-01-01', '2025-01-01', 2);
+values ('2021-01-01', '2018-01-01', 3);
 
 
 

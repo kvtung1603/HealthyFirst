@@ -30,7 +30,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         return userRepository.existsByUsername(name);
     }
 
-    public Optional<User> findByUserName(String name) {
+    public User findByUserName(String name) {
         return userRepository.findByUsername(name);
     }
 
@@ -53,7 +53,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     @Override
     @Transactional
     public UserDetails loadUserByUsername(String name) throws UsernameNotFoundException {
-        var user = findByUserName(name).get();
+        var user = findByUserName(name);
         if (user == null) {
             throw new UsernameNotFoundException("Username not found " + name);
         }
